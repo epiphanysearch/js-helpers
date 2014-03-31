@@ -20,6 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "jQuery": "latest"
+    "jQuery": "latest",
+    "bootbox": ">3.0.0"
   }
 }
