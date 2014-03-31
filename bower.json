@@ -1,0 +1,25 @@
+{
+  "name": "epiphany-js-helpers",
+  "version": "0.1.0",
+  "authors": [
+    "Dan Martin <dan.martin@epiphanysolutions.co.uk>"
+  ],
+  "description": "Javascript helpers",
+  "keywords": [
+    "epiphany",
+    "utils",
+    "helpers"
+  ],
+  "license": "MIT",
+  "homepage": "www.epiphanysearch.co.uk",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "latest"
+  }
+}
