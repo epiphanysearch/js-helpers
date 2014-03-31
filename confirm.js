@@ -18,7 +18,7 @@
                 if(typeof(message)==='undefined')
                     message = settings.message;
 
-                bootbox.confirm(message,'No','Yes', function(result) {
+                bootbox.confirm(message, function(result) {
                     if(result === true) {
                         // go to the original link
                         window.location = target.attr('href');
