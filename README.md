@@ -57,7 +57,7 @@ Basic usage: call on a text box to add a spin control
 
 Advanced usage:
 
-    Set minimum, maximum and increment values:
+Set minimum, maximum and increment values:
 
 ```html
 <input type='text' id='spin' value='0' />
@@ -71,9 +71,9 @@ Advanced usage:
 </script>
 ```
 
-    Customize encoders and decoders to support different formats
+Customize encoders and decoders to support different formats
 
-    e.g. decimals:
+e.g. decimals:
 
 ```html
 <input type='text' id='spin' value='0' />
@@ -93,7 +93,7 @@ Advanced usage:
 </script>
 ```
 
-    e.g. time (using moment.js):
+e.g. time (using moment.js):
 
 
 ```html
