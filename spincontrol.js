@@ -6,14 +6,13 @@
             // These are the defaults.   
             incrementSize: 1
         }, options);
-        var ctrl = null;
-
+        
         var spinner = function () {
             var obj = this;
             this.init = function (e) {
-                ctrl = $(e);
+                obj.ctrl = $(e);
 
-                ctrl.wrap('<div class="spinbutton"></div>');
+                obj.ctrl.wrap('<div class="spinbutton"></div>');
 
                 var plus = $('<a href="#"><i class="icon icon-plus"></i></a>')
                     .on('click', function () {
@@ -40,11 +39,11 @@
             };
 
             this.modify = function (amt) {
-                var val = obj.decoder(ctrl.val());
+                var val = obj.decoder(obj.ctrl.val());
                 val += amt;
                 if (((typeof (settings.max) !== 'undefined') && val > settings.max) || ((typeof (settings.min) !== 'undefined') && val < settings.min)) return; // out of range - don't set the value
 
-                ctrl.val(obj.encoder(val));
+                obj.ctrl.val(obj.encoder(val));
             };
 
         };
