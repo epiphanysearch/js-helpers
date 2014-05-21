@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>JS Helpers</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/img/glyphicons-halflings.png">
+        <link rel="stylesheet" href="spincontrol.css">
+
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/bootbox.js/3.3.0/bootbox.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.js"></script>        
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.js"></script>
+        <script type="text/javascript" src="checkbox-toggle.js"></script>
+        <script type="text/javascript" src="confirm.js"></script>
+        <script type="text/javascript" src="spincontrol.js"></script>
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Checkboxes</h1>
+            <a href='#' class='js-toggle-all'>all</a> / <a href='#' class='js-toggle-none'>none</a>
+            <ul>
+                <li>Item One <input type='checkbox' class='js-checkbox' /></li>
+                <li>Item Two <input type='checkbox' class='js-checkbox' /></li>
+                <li>Item Three <input type='checkbox' class='js-checkbox' /></li>
+                <li>Item Four <input type='checkbox' class='js-checkbox' /></li>
+                <li>Item Five <input type='checkbox' class='js-checkbox' /></li>
+            </ul>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('.js-toggle-all').checkboxToggleAll('all');
+                    $('.js-toggle-none').checkboxToggleAll('none');
+                });
+            </script>
+
+            <h1>Confirm</h1>
+            <a href='http://www.bristolrovers.co.uk' class='js-confirm btn btn-danger' data-confirm-message='Are you sure you want to do this terrible thing?'>Do a terrible thing</a>
+            <script type="text/javascript">
+                $(function() {
+                    $('.js-confirm').confirm();                
+                });
+            </script>
+
+
+            <h1>Spinners</h1>
+            
+            Integer
+            <input type="text" id='integer' value='0' />
+            
+            Decimal
+            <input type="text" id='decimal' value='0' />
+
+            Time
+            <input type="text" id='time' value='0:00' />
+
+            <script type="text/javascript">
+                $('#integer').spinControl({
+                    'incrementSize': 1,
+                        'min': 0,
+                        'max': 20
+                });
+
+                $('#decimal').spinControl({
+                    'incrementSize': 0.05,
+                        'min': -2.5,
+                        'max': 2.5,
+                        'decoder': function (val) {
+                        return (isNaN(val) ? 0 : parseFloat(val));
+                    },
+                        'encoder': function (val) {
+                        return (isNaN(val) ? 0 : val.toFixed(2));
+                    }
+                });
+
+                $('#time').spinControl({
+                    'incrementSize': 30,
+                        'min': 0,
+                        'max': 180,
+                        'decoder': function (val) {
+                        var m = moment(val, "H:mm");
+                        return ((m.hour() * 60) + m.minute()); // use moment to convert e.g 1:30 to 90 mins
+                    },
+                        'encoder': function (val) {
+                        return moment(0).minute(val).format("H:mm"); // use moment to convert e.g 90 to 1:30
+                    }
+                });
+            </script>
+        </div>
+    </body>
+</html>
