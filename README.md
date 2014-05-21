@@ -41,4 +41,78 @@ Usage: call on a link with "all" to make the link check all checkboxes or "none"
 ```
 
 
+## spincontrol.js
 
+Turn a text input into a spin control
+
+Basic usage: call on a text box to add a spin control
+
+```html
+<input type='text' id='spin' value='0' />
+
+<script>
+    $('#spin').spinControl();    
+</script>
+```
+
+Advanced usage:
+
+    Set minimum, maximum and increment values:
+
+```html
+<input type='text' id='spin' value='0' />
+
+<script>
+    $('#spin').spinControl({
+        min: 0,
+        max: 100,
+        incrementSize: 10
+    });    
+</script>
+```
+
+    Customize encoders and decoders to support different formats
+
+    e.g. decimals:
+
+```html
+<input type='text' id='spin' value='0' />
+
+<script>
+    $('#spin').spinControl({
+        'incrementSize': 0.05,
+        'min': -2.5,
+        'max': 2.5,
+        'decoder': function (val) {
+            return (isNaN(val) ? 0 : parseFloat(val));
+        },
+        'encoder': function (val) {
+            return (isNaN(val) ? 0 : val.toFixed(2));
+        }
+    });    
+</script>
+```
+
+    e.g. time (using moment.js):
+
+
+```html
+<input type='text' id='spin' value='0' />
+
+<script>
+    $('#spin').spinControl({
+        'incrementSize': 30,
+        'min': 0,
+        'max': 180,
+        'decoder': function (val) {
+            var m = moment(val, "H:mm");
+            return ((m.hour() * 60) + m.minute()); // use moment to convert e.g 1:30 to 90 mins
+        },
+        'encoder': function (val) {
+            return moment(0).minute(val).format("H:mm"); // use moment to convert e.g 90 to 1:30
+        }
+    });    
+</script>
+```
+
+Refer to index.html to see these demos in action
