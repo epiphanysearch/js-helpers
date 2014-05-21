@@ -15,15 +15,17 @@
                 obj.ctrl.wrap('<div class="spinbutton"></div>');
 
                 var plus = $('<a href="#"><i class="icon icon-plus"></i></a>')
-                    .on('click', function () {
-                    return obj.modify(settings.incrementSize);
-                })
+                    .on('click', function (e) {
+                        e.preventDefault();
+                        return obj.modify(settings.incrementSize);
+                    })
                     .appendTo($(e).parent());
 
                 var minus = $('<a href="#"><i class="icon icon-minus"></i></a>')
-                    .on('click', function () {
-                    return obj.modify(-1 * settings.incrementSize);
-                })
+                    .on('click', function (e) {
+                        e.preventDefault();
+                        return obj.modify(-1 * settings.incrementSize);
+                    })
                     .appendTo($(e).parent());
 
                 return this;
