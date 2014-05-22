@@ -12,21 +12,24 @@
             this.init = function (e) {
                 obj.ctrl = $(e);
 
-                obj.ctrl.wrap('<div class="spinbutton"></div>');
+                var spinControl = obj.ctrl.wrap('<div class="spincontrol"></div>')
+                    .closest('.spincontrol')
+                    .width(obj.ctrl.width());
+                var spinButton = $('<div class="spinbutton"></div>').appendTo(spinControl);
 
                 var plus = $('<a href="#"><i class="icon icon-plus"></i></a>')
-                    .on('click', function (e) {
+                    .on('click', function (e) {  
                         e.preventDefault();
                         return obj.modify(settings.incrementSize);
                     })
-                    .appendTo($(e).parent());
+                    .appendTo(spinButton);
 
                 var minus = $('<a href="#"><i class="icon icon-minus"></i></a>')
                     .on('click', function (e) {
                         e.preventDefault();
                         return obj.modify(-1 * settings.incrementSize);
                     })
-                    .appendTo($(e).parent());
+                    .appendTo(spinButton);
 
                 return this;
             };

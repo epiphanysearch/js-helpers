@@ -1,6 +1,11 @@
+.spincontrol {
+    position: relative;
+}
+.spinbutton {
+    position:absolute;
+    right: -10px;
+    top: 6px;
+}
 .spinbutton a {
-    position:relative;
-    left: -42px;
-    top: -4px;
     margin-right: 5px;
 }
