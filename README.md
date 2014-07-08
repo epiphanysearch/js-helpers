@@ -116,3 +116,21 @@ e.g. time (using moment.js):
 ```
 
 Refer to index.html to see these demos in action
+##v0.1.0 - 08 July 2014
+	 - checkbox-toggle now fires a change event for each checkbox changed
+	 - fixed spincontrol styling
+	 - added preventDefault() to click events for spinner
+	 - bug fix in spinner - was not handling multiple instances well
+	 - updated README
+	 - updated README
+	 - added spin control and demo page
+	 - v0.1.2
+	 - bootbox.js no longer supports custom button labels so removed them and reverted to default OK and Cancel
+	 - v0.1.1
+	 - added bootbox dependency
+	 - Merge from repo created on github - includes licence file
+	 - Delete README.md
+	 - Initial commit
+	 - added checkbox-toggle and confirm
+	 - initial setup
+
