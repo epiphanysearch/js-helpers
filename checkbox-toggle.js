@@ -13,7 +13,9 @@
             return this.each(function() {
                 $(this).on('click', function() {
                     return checkboxes.each(function() {
-                        $(this).prop('checked',true);
+                        $(this)
+                                .prop('checked',true)
+                                .trigger('change');
                     });
                 });
             });
@@ -23,7 +25,9 @@
             return this.each(function() {
                 $(this).on('click', function() {
                     return checkboxes.each(function() {
-                        $(this).prop('checked',false);
+                        $(this)
+                                .prop('checked',false)
+                                .trigger('change');
                     });
                 });
             });
