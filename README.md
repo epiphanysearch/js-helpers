@@ -171,3 +171,7 @@ Refer to index.html to see these demos in action
 	 - added checkbox-toggle and confirm
 	 - initial setup
 
+
+##v0.1.1 - 20 October 2014
+	 - added auto-update-search-form jQuery component
+
