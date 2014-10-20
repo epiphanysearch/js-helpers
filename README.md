@@ -115,6 +115,43 @@ e.g. time (using moment.js):
 </script>
 ```
 
+## auto-update-search-form.js
+
+Dynamically submit a search form and update the search results as it is filled out 
+
+Note - Any KNP pagination elements within the results will be overriden and incorporated into the form
+
+```html
+
+<form class="userSearch" action="/user/search" method="GET">
+    <label>Search String</label>
+    <input name="searchString" type="text"/>
+    <label>Tag</label>
+    <select name="tag">
+        <option value="Manager">Manager</option>
+        <option value="SEOer">SEOer</option>
+        <option value="PPCer">PPCer</option>
+        <option value="Creative">Creative</option>
+    </select>
+    <input name="active" type="checkbox"/> Active?
+</form>
+
+<div class="userSearchResults">
+
+    ...
+
+</div>
+
+<script type="text/javascript">
+
+    $('form.userSearch').autoUpdateSearchForm({
+        "resultsContainer" : ".userSearchResults"
+    });
+
+</script>
+
+```
+
 Refer to index.html to see these demos in action
 ##v0.1.0 - 08 July 2014
 	 - checkbox-toggle now fires a change event for each checkbox changed
