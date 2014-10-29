@@ -81,4 +81,5 @@ $.fn.autoUpdateSearchForm = function(options) {
             e.preventDefault();
         });
     });
-}
+};
+
